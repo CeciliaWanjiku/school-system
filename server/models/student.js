@@ -30,9 +30,9 @@ module.exports = (sequelize, DataTypes) => {
       through: "SubjectStudent",
       as: "students"
     });
-    Student.belongsTo(models.Teacher, {
-      foreignKey: "teacherId"
-    });
+    // Student.belongsTo(models.Teacher, {
+    //   foreignKey: "teacherId"
+    // });
   };
   return Student;
 };

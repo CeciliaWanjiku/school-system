@@ -15,14 +15,14 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      teacherId: {
-        type: Sequelize.STRING,
-        references: {
-          model: "Teachers",
-          as: "students",
-          allowNull: false
-        }
-      },
+      // teacherId: {
+      //   type: Sequelize.STRING,
+      //   references: {
+      //     model: "Teachers",
+      //     as: "students",
+      //     allowNull: false
+      //   }
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

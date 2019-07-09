@@ -31,10 +31,10 @@ module.exports = (sequelize, DataTypes) => {
     Teacher.belongsTo(models.Proprietor, {
       foreignKey: "proprietorId"
     });
-    Teacher.hasMany(models.Student, {
-      foreignKey: "teacherId",
-      as: "students"
-    });
+    // Teacher.hasMany(models.Student, {
+    //   foreignKey: "teacherId",
+    //   as: "students"
+    // });
   };
 
   return Teacher;

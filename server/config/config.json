@@ -1,0 +1,18 @@
+{
+  "development": {
+    "username": "ceciliawahome",
+    "password": null,
+    "database": "school",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "ceciliawahome",
+    "password": null,
+    "database": "school-test",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  }
+}

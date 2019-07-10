@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "export NODE_ENV=development && npm run migrate",
+    "postinstall": "npm run migrate",
     "start:dev": "nodemon -r esm ./bin/www",
     "start": "nodemon -r esm ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1",

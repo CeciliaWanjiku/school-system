@@ -1,4 +1,3 @@
-[
 
 ## School Grading System
 

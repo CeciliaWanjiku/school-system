@@ -18,18 +18,19 @@ module.exports = (sequelize, DataTypes) => {
   );
   Grade.associate = function(models) {
     Grade.belongsTo(models.Subject, {
-      foreignKey: "subjectId"
+      foreignKey: "subject",
+      targetKey: "name"
     });
     Grade.belongsTo(models.User, {
-      foreignKey: "assignedBy",
-      as: "teacher"
+      foreignKey: "assignedBy"
     });
     Grade.belongsTo(models.User, {
       foreignKey: "assignedTo",
-      as: "student"
+      targetKey: "email"
     });
     Grade.belongsTo(models.Week, {
-      foreignKey: "weekId"
+      foreignKey: "week",
+      targetKey: "name"
     });
   };
   return Grade;

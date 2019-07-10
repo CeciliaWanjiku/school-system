@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       name: {
         type: DataTypes.STRING,
+        unique: true,
         allowNull: false
       }
     },
@@ -18,8 +19,9 @@ module.exports = (sequelize, DataTypes) => {
   );
   Week.associate = function(models) {
     Week.hasMany(models.Grade, {
-      foreignKey: "weekId",
-      as: "grades"
+      foreignKey: "week",
+      as: "grades",
+      sourceKey: "name"
     });
   };
   return Week;

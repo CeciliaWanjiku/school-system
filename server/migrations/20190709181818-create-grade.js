@@ -11,11 +11,12 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      subjectId: {
+      subject: {
         type: Sequelize.STRING,
         references: {
           model: "Subjects",
           as: "grades",
+          key: "name",
           allowNull: false
         }
       },
@@ -23,7 +24,7 @@ module.exports = {
         type: Sequelize.STRING,
         references: {
           model: "Users",
-          as: "grades",
+          as: "teacher",
           allowNull: false
         }
       },
@@ -31,15 +32,17 @@ module.exports = {
         type: Sequelize.STRING,
         references: {
           model: "Users",
-          as: "grades",
+          key: "email",
+          as: "assignedTo",
           allowNull: false
         }
       },
-      weekId: {
+      week: {
         type: Sequelize.STRING,
         references: {
           model: "Weeks",
           as: "grades",
+          key: "name",
           allowNull: false
         }
       },

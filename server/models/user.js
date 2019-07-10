@@ -13,6 +13,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
+      email: {
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false
+      },
       password: {
         type: DataTypes.STRING,
         allowNull: false
@@ -36,6 +41,11 @@ module.exports = (sequelize, DataTypes) => {
       through: "SubjectStudent",
       as: "students",
       otherKey: "subjectId"
+    });
+    User.hasMany(models.Grade, {
+      foreignKey: "assignedTo",
+      as: "grades",
+      sourceKey: "email"
     });
   };
   return User;

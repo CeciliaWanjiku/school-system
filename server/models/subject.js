@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       name: {
         type: DataTypes.STRING,
+        unique: true,
         allowNull: false
       }
     },
@@ -31,8 +32,9 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Subject.hasMany(models.Grade, {
-      foreignKey: "subjectId",
-      as: "grades"
+      foreignKey: "subject",
+      as: "grades",
+      sourceKey: "name"
     });
   };
   return Subject;

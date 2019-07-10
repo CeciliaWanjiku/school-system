@@ -14,5 +14,13 @@
     "host": "127.0.0.1",
     "dialect": "postgres",
     "operatorsAliases": false
+  },
+  "staging": {
+    "username": "sgsfzmfkijvgis",
+    "password": "6f50d4cd90a4e0ef24731c56797196b4b150254499d28153e45a9323e8ff3363",
+    "database": "d8ntc7lvosutbv",
+    "host": "ec2-107-20-168-237.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "logging": false
   }
 }

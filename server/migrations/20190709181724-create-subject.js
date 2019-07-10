@@ -11,14 +11,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      proprietorId: {
-        type: Sequelize.STRING,
-        references: {
-          model: "Proprietors",
-          as: "subjects",
-          allowNull: false
-        }
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

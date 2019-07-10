@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Proprietors", {
+    return queryInterface.createTable("Users", {
       id: {
         allowNull: false,
         primaryKey: true,
@@ -19,6 +19,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
+      role: {
+        type: Sequelize.ENUM(["proprietor", "teacher", "student"]),
+        allowNull: false
+      },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -26,6 +30,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Proprietors");
+    return queryInterface.dropTable("Users");
   }
 };

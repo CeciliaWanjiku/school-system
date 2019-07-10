@@ -1,15 +1,14 @@
 "use strict";
 const cuid = require("cuid");
 module.exports = (sequelize, DataTypes) => {
-  const Teacher = sequelize.define(
-    "Teacher",
+  const User = sequelize.define(
+    "User",
     {
       id: {
         type: DataTypes.STRING,
         defaultValue: () => cuid(),
         primaryKey: true
       },
-
       name: {
         type: DataTypes.STRING,
         allowNull: false
@@ -17,25 +16,27 @@ module.exports = (sequelize, DataTypes) => {
       password: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+      role: {
+        type: DataTypes.ENUM(["proprietor", "teacher", "student"]),
+        allowNull: false
       }
     },
     {}
   );
-  Teacher.associate = models => {
-    Teacher.belongsToMany(models.Subject, {
+  User.associate = function(models) {
+    User.belongsToMany(models.Subject, {
       through: "TeacherSubject",
       foreignKey: "teacherId",
       as: "subjects",
       otherKey: "subjectId"
     });
-    Teacher.belongsTo(models.Proprietor, {
-      foreignKey: "proprietorId"
+    User.belongsToMany(models.Subject, {
+      foreignKey: "studentId",
+      through: "SubjectStudent",
+      as: "students",
+      otherKey: "subjectId"
     });
-    // Teacher.hasMany(models.Student, {
-    //   foreignKey: "teacherId",
-    //   as: "students"
-    // });
   };
-
-  return Teacher;
+  return User;
 };

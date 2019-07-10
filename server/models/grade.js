@@ -20,8 +20,13 @@ module.exports = (sequelize, DataTypes) => {
     Grade.belongsTo(models.Subject, {
       foreignKey: "subjectId"
     });
-    Grade.belongsTo(models.Student, {
-      foreignKey: "studentId"
+    Grade.belongsTo(models.User, {
+      foreignKey: "assignedBy",
+      as: "teacher"
+    });
+    Grade.belongsTo(models.User, {
+      foreignKey: "assignedTo",
+      as: "student"
     });
     Grade.belongsTo(models.Week, {
       foreignKey: "weekId"

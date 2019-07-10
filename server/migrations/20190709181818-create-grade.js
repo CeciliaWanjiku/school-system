@@ -19,10 +19,18 @@ module.exports = {
           allowNull: false
         }
       },
-      studentId: {
+      assignedBy: {
         type: Sequelize.STRING,
         references: {
-          model: "Students",
+          model: "Users",
+          as: "grades",
+          allowNull: false
+        }
+      },
+      assignedTo: {
+        type: Sequelize.STRING,
+        references: {
+          model: "Users",
           as: "grades",
           allowNull: false
         }

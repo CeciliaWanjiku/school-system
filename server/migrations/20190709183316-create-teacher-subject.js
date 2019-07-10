@@ -6,7 +6,7 @@ module.exports = {
         type: Sequelize.STRING,
         onUpdate: "CASCADE",
         references: {
-          model: "Teachers",
+          model: "Users",
           as: "teacherId"
         }
       },

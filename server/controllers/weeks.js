@@ -9,6 +9,7 @@ module.exports = {
       .then(subject => res.status(201).send(subject))
       .catch(error => res.status(400).send(error));
   },
+
   listWeeks(req, res) {
     return Week.findAll({
       include: [

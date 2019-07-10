@@ -30,4 +30,5 @@ module.exports = app => {
   app.get("/grade", gradeController.listGrades);
   app.get("/grade/student", gradeController.retrieveStudentGrade);
   app.put("/grade/:week/:assignedTo", gradeController.updateGrade);
+  app.get("/grades/:week", gradeController.listGradesPerWeek);
 };

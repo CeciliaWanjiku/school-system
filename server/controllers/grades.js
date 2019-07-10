@@ -26,6 +26,7 @@ module.exports = {
         name: req.body.subject
       }
     }).then(response => {
+      console.log(response);
       // Check if subject exists
       if (!response) {
         return res.status(404).send({
@@ -84,23 +85,39 @@ module.exports = {
   },
 
   updateGrade: async (req, res) => {
-    const studentWeekGrade = await Grade.findOne({
+    return Grade.findOne({
       where: {
         assignedBy: req.user.id,
         subject: req.body.subject,
         week: req.params.week,
         assignedTo: req.params.assignedTo
       }
-    });
-    console.log(">>>>>>>>>>>>>>>", studentWeekGrade);
-    // return Grade.update(req.params.assignedTo, req.params.week, {
-    //   where: {
-    //     studentWeekGrade
-    //   },
-    //   name: req.body.name,
-    //   subject: req.body.subject
-    // })
-    //   .then(grade => res.status(200).send(grade))
-    //   .catch(error => res.status(400).send(error));
+    })
+      .then(response => {
+        // Check if student grade for the subject exists under that teacher
+        if (!response) {
+          return res.status(403).send({
+            message: "Cannot update grade you did not score"
+          });
+        }
+        return response
+          .update({
+            name: req.body.name,
+            subject: req.body.subject
+          })
+          .then(grade => res.status(200).send(grade))
+          .catch(error => res.status(400).send(error));
+      })
+      .catch(error => res.status(400).send(error));
+  },
+
+  listGradesPerWeek(req, res) {
+    return Grade.findAll({
+      where: {
+        week: req.params.week
+      }
+    })
+      .then(grade => res.status(200).send(grade))
+      .catch(error => res.status(400).send(error));
   }
 };

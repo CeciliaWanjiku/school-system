@@ -33,12 +33,14 @@ https://school-s.herokuapp.com/
 ## Endpoints
 //sign up the pricipal/proprietor
 https://school-s.herokuapp.com/signup/proprietor
+
+
 e.g
-{
+```{
 	"email": "micah@andela.com",
 	"name": "micah",
 	"password": "pass"
-}
+}```
 
 //login proprietor and add subjects
 

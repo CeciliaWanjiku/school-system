@@ -31,16 +31,16 @@ https://school-s.herokuapp.com/
 
 
 ## Endpoints
-//sign up the pricipal/proprietor
+```//sign up the pricipal/proprietor
 https://school-s.herokuapp.com/signup/proprietor
 
 
 e.g
-```{
+{
 	"email": "micah@andela.com",
 	"name": "micah",
 	"password": "pass"
-}```
+}
 
 //login proprietor and add subjects
 
@@ -100,7 +100,7 @@ https://school-s.herokuapp.com/grade
 
 
 //query for grades per week
-https://school-s.herokuapp.com/grades/week4
+https://school-s.herokuapp.com/grades/week4```
 
 
 

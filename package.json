@@ -19,7 +19,7 @@
     "dotenv": "^8.0.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.14",
     "morgan": "^1.9.1",
     "pg": "^7.11.0",
